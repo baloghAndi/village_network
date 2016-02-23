@@ -1,0 +1,26 @@
+#:kivy 1.9.0
+
+
+<GridEntry>:
+
+    tower: tower_id
+    village: village_id
+    borders: 2, 'solid', (10,10,10,10)
+    
+
+    
+    Village:
+        id: village_id
+        text:"X"
+       
+
+    WifiTower:
+        id: tower_id
+        size_hint: 0.15, 0.15
+        active: self.is_active   
+
+<VillageMap>:
+    cols: 7 # Number of columns
+    borders: 2, 'solid', (10,10,10,10)
+
+

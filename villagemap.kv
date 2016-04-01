@@ -1,26 +1,51 @@
 #:kivy 1.9.0
-
-
+ 
 <GridEntry>:
-
+    id: content_id
     tower: tower_id
     village: village_id
     borders: 2, 'solid', (10,10,10,10)
     
-
-    
     Village:
         id: village_id
         text:"X"
-       
 
     WifiTower:
         id: tower_id
         size_hint: 0.15, 0.15
-        active: self.is_active   
+        active: self.is_active
+        on_release: root.activate_tower()
+ 
 
-<VillageMap>:
-    cols: 7 # Number of columns
-    borders: 2, 'solid', (10,10,10,10)
+<Game>:
+    
+    orientation:'horizontal'
+    village_map: village_map_id
+    result_label: result_label_id
+    #pos_hint : 0,0
+   
+    VillageMap:
+        id: village_map_id
+        cols: 8 # Number of columns
+
+        
+        
+    BoxLayout:
+        size_hint: 0.10, 0.10
+        orientation:'vertical'
+
+        Label:
+            id: result_label_id
+            text: ""
+
+        Button:
+            text:"Submit"
+            on_release: root.submit_solution()
+
+        Button:
+            text:"New Game"
+            on_release: root.new_game()
+        
 
 
+     
